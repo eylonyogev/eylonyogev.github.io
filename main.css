@@ -11,8 +11,8 @@ html {
       line-height: 1.7;
       font-weight: 400;
       font-family: "Noto Sans", sans-serif;
-      color: #111; 
-      background-color: #272729;
+      color: #333333; /* Dark gray for text */
+      background-color: #F4F4F4; /* Light gray background */
       /*background-image:url(bck6.jpg);
       background-color: #BCE8F4;
       background-repeat: no-repeat; 
@@ -72,13 +72,13 @@ html {
       margin-left:auto;
       margin-right:auto;
       padding-bottom: 100px;
-      color: #B5B8B0;
+      color: #111904;
       font-size:100%;
       width: 55vw; 
       clear: both;
       line-height: 150%;
       z-index: 1;
-      background: #272729;
+      background: #F4F4F4;
   }
   
   @media screen and (min-width: 600px) {
@@ -140,13 +140,13 @@ html {
   }
   
   h1{
-      color: #B5B8B0;     
+      color: #151e06;     
       font-weight: bold;
       margin: 0% 0% 1% 0%;
   }
   
   h2{
-      color: #B5B8B0;
+      color: #111805;
       margin: -1% 0%;
       font-weight: bold;
   }
@@ -193,7 +193,7 @@ html {
   .icons {
       height = 26px;
       width = 26px;
-      color: #B5B8B0; 
+      color: #2a292f; 
       box-shadow: none;
       a.hover: 
   }
@@ -203,13 +203,13 @@ html {
   }
   
   a {
-      color: #B5B8B0;  
+      color: #2a2c28;  
       text-decoration: none;
-      box-shadow: 0 1px 0 #8ba6c1;
+      box-shadow: 0 1px 0 #a1a19f;
       /*font-weight: normal;*/
   }
   .coauthor {
-      color: #B5B8B0;  
+      color: #2a2c27;  
       text-decoration: none;
   }
   table ol {
