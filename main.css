@@ -74,18 +74,18 @@ html {
       padding-bottom: 100px;
       color: #111904;
       font-size:100%;
-      width: 55vw; 
+      width: 60vw; 
       clear: both;
       line-height: 150%;
       z-index: 1;
       background: #F4F4F4;
   }
   
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 800px) {
   
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     div#contentpane {
         font-size: 100%;
       width: 100vw;
