@@ -26,6 +26,12 @@ html {
       height:100%;
       width:100%; 
   }
+
+  @media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Smaller font size for screens less than 600px wide */
+    }
+}
   
   .wrapper {
       position: absolute;
@@ -72,7 +78,7 @@ html {
       margin-left:auto;
       margin-right:auto;
       padding-bottom: 100px;
-      color: #111904;
+      color: #333333;
       font-size:100%;
       width: 60vw; 
       clear: both;
@@ -146,7 +152,7 @@ html {
   }
   
   h2{
-      color: #111805;
+      color: #333333;
       margin: -1% 0%;
       font-weight: bold;
   }
@@ -159,6 +165,10 @@ html {
       color: #222222;
       text-decoration: none;
       font-weight: bold;
+  }
+
+  h4 {
+    color: #656565;
   }
   
   h1>a:hover {
@@ -203,13 +213,13 @@ html {
   }
   
   a {
-      color: #2a2c28;  
+      color: #373837;  
       text-decoration: none;
       box-shadow: 0 1px 0 #a1a19f;
       /*font-weight: normal;*/
   }
   .coauthor {
-      color: #2a2c27;  
+      color: #373837;  
       text-decoration: none;
   }
   table ol {
