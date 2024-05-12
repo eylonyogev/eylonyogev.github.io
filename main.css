@@ -91,7 +91,7 @@ html {
       margin-left:auto;
       margin-right:auto;
       padding-bottom: 100px;
-      color: #333333;
+      color: #191919;
       font-size:100%;
       width: 60vw; 
       clear: both;
@@ -181,7 +181,7 @@ html {
   }
 
   h4 {
-    color: #656565;
+    color: #4e4e4e;
   }
   
   h1>a:hover {
