@@ -12,7 +12,7 @@ html {
       font-weight: 400;
       font-family: "Noto Sans", sans-serif;
       color: #333333; /* Dark gray for text */
-      background-color: #F4F4F4; /* Light gray background */
+      background-color: #FBFBFB; /* Light gray background */
       /*background-image:url(bck6.jpg);
       background-color: #BCE8F4;
       background-repeat: no-repeat; 
@@ -97,7 +97,8 @@ html {
       clear: both;
       line-height: 150%;
       z-index: 1;
-      background: #F4F4F4;
+      background: #e5d78f42;
+      border-radius: 20px;
   }
   
   @media screen and (min-width: 800px) {
