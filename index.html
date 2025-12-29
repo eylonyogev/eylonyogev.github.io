@@ -22,6 +22,7 @@
             --accent-hover: #4338ca;   /* Darker Indigo for hover */
             --border: #e2e8f0;         /* Light border color */
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --nav-height: 64px;        /* Height of the sticky navbar */
         }
 
         /* --- RESET & BASE STYLES --- */
@@ -49,6 +50,51 @@
             text-decoration: underline;
         }
 
+        /* --- TOP NAVIGATION BAR --- */
+        .navbar {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the links */
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background-color: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom-color: var(--accent);
+        }
+
         /* --- LAYOUT CONTAINER --- */
         .container {
             max-width: 1200px;
@@ -62,7 +108,8 @@
         /* --- SIDEBAR (Profile) --- */
         .sidebar {
             position: sticky;
-            top: 40px; /* Stays visible when scrolling */
+            /* Adjusted top to account for navbar height + gap */
+            top: calc(var(--nav-height) + 20px); 
             height: fit-content;
         }
 
@@ -116,29 +163,6 @@
             stroke: var(--accent);
         }
 
-        /* --- SIDEBAR NAVIGATION --- */
-        .nav-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-align: left;
-            padding: 10px 0;
-        }
-
-        .nav-menu a {
-            padding: 8px 15px;
-            border-radius: 6px;
-            color: var(--text-muted);
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-
-        .nav-menu a:hover {
-            background-color: #f1f5f9;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
         /* --- MAIN CONTENT --- */
         .main-content {
             display: flex;
@@ -152,7 +176,8 @@
             border-radius: 12px;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
-            scroll-margin-top: 40px; /* Offset for sticky sidebar/header */
+            /* Ensure smooth scroll lands correctly below the sticky header */
+            scroll-margin-top: calc(var(--nav-height) + 20px);
         }
 
         h4 {
@@ -267,16 +292,39 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .nav-menu {
-                flex-direction: row;
-                justify-content: center;
+                gap: 20px;
                 flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navbar-content {
+                height: auto;
+                padding: 10px 20px;
+            }
+
+            /* Adjust offsets for mobile where header might be taller/shorter */
+            :root {
+                --nav-height: 50px; 
             }
         }
     </style>
 </head>
 <body>
+
+<!-- TOP NAVIGATION -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <div class="nav-menu">
+            <a href="#about">About Me</a>
+            <a href="#students">Students</a>
+            <a href="#books">Books</a>
+            <a href="#publications">Publications</a>
+            <a href="#service">Service</a>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
     
@@ -315,14 +363,6 @@
                     </svg>
                 </a>
             </div>
-
-            <nav class="nav-menu">
-                <a href="#about">About Me</a>
-                <a href="#students">Students</a>
-                <a href="#books">Books</a>
-                <a href="#publications">Publications</a>
-                <a href="#service">Service</a>
-            </nav>
         </div>
     </aside>
 
