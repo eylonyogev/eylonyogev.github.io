@@ -348,6 +348,17 @@
         }
 
 
+        /* --- SUBSECTION HEADINGS --- */
+        .subhead {
+            font-family: 'Vollkorn', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 26px 0 10px 0;
+        }
+
+        section .subhead:first-of-type { margin-top: 0; }
+
         /* --- HIGHLIGHTS --- */
         .highlights {
             display: grid;
@@ -620,11 +631,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 About Me
             </h4>
-            <p>I am an Associate Professor in the <a href="https://cs.biu.ac.il/" target="_blank">Department of Computer Science at Bar-Ilan University</a> and a researcher at the <a href="https://cyber.biu.ac.il/" target="_blank">Bar-Ilan Center for Research in Applied Cryptography and Cyber Security</a>.</p>
+            <p>I am an Associate Professor in the <a href="https://cs.biu.ac.il/" target="_blank">Department of Computer Science at Bar-Ilan University</a> and a researcher at the <a href="https://cyber.biu.ac.il/" target="_blank">Bar-Ilan Center for Research in Applied Cryptography and Cyber Security</a>. I got my PhD from the Weizmann Institute under the supervision of Prof. <a class="coauthor" href="http://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>.</p>
             <br>
-            <p>My research focuses on <strong>theoretical computer science</strong> and <strong>cryptography</strong>. I am particularly interested in <strong>interactive proof systems</strong> (such as SNARGs and IOPs) and their applications to verifiable computation.</p>
+            <p>My research is in <strong>cryptography</strong> and <strong>theoretical computer science</strong>. I study proof systems that let someone verify a long computation without rerunning it &mdash; checking a few hundred bytes instead of gigabytes, and still being convinced. Much of my work concerns the security and efficiency of these systems.</p>
             <br>
-            <p>I completed my PhD at the Weizmann Institute of Science, where I was fortunate to be advised by Prof. <a class="coauthor" href="http://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>.</p>
+            <p>I am always glad to hear from students interested in cryptography &mdash; feel free to <a href="mailto:eylon.yogev@biu.ac.il">get in touch</a>.</p>
 
             <div class="highlights">
                 <a class="highlight" href="https://snargsbook.org/" target="_blank">
@@ -652,14 +663,19 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
                 Students
             </h4>
+            <h5 class="subhead">Current</h5>
             <ul>
                 <li>Michael Tsaban (MSc student)</li>
                 <li>Dor Shroitman (MSc student)</li>
-                <li>Yonatan Ziskind (MSc student)</li>
-                <li><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a> (PhD student, co-advised with Moni Naor)</li>
                 <li><a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a> (PhD student)</li>
-                <li>Amit Sharabi (MSc student)</li>
-                <li>Daniel Nukrai (MSc student, co-advised with Iftach Haitner)</li>
+                <li>Rachel Kerem (PhD student)</li>
+            </ul>
+
+            <h5 class="subhead">Past</h5>
+            <ul>
+                <li><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a> (PhD, co-advised with Moni Naor)</li>
+                <li>Amit Sharabi (MSc)</li>
+                <li>Daniel Nukrai (MSc, co-advised with Iftach Haitner)</li>
             </ul>
         </section>
 
@@ -1139,12 +1155,12 @@
                 Professional Service
             </h4>
             
-            <h5 style="color: var(--primary); margin: 15px 0 10px 0; font-family: 'Vollkorn', serif;">Workshop Organization</h5>
+            <h5 class="subhead">Workshop Organization</h5>
             <ul>
                 <li>Organizer: <a href="https://cyber.biu.ac.il/event/the-13th-biu-winter-school-on-cryptography/" target="_blank">The 13th BIU Winter School on Cryptography</a></li>
             </ul>
 
-            <h5 style="color: var(--primary); margin: 25px 0 10px 0; font-family: 'Vollkorn', serif;">Program Committees</h5>
+            <h5 class="subhead">Program Committees</h5>
             <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                 <li><a href="https://zkproof.org/events/zkproof-8-rome/" target="_blank">ZKProof 8</a></li>
                 <li>TCC 2026</li>
