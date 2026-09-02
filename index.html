@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eylon Yogev - Academic Profile</title>
     
+    <meta name="description" content="Eylon Yogev is an Associate Professor of Computer Science at Bar-Ilan University. His research is in cryptography and theoretical computer science: succinct arguments (SNARGs), interactive oracle proofs, and verifiable computation.">
+    <meta name="author" content="Eylon Yogev">
+    <link rel="canonical" href="https://eylonyogev.github.io/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f46e5'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EEY%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Eylon Yogev — Bar-Ilan University">
+    <meta property="og:description" content="Eylon Yogev is an Associate Professor of Computer Science at Bar-Ilan University. His research is in cryptography and theoretical computer science: succinct arguments (SNARGs), interactive oracle proofs, and verifiable computation.">
+    <meta property="og:url" content="https://eylonyogev.github.io/">
+    <meta property="og:image" content="https://eylonyogev.github.io/profile.jpg">
+    <meta property="og:image:alt" content="Portrait of Eylon Yogev">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Eylon Yogev — Bar-Ilan University">
+    <meta name="twitter:description" content="Eylon Yogev is an Associate Professor of Computer Science at Bar-Ilan University. His research is in cryptography and theoretical computer science: succinct arguments (SNARGs), interactive oracle proofs, and verifiable computation.">
+    <meta name="twitter:image" content="https://eylonyogev.github.io/profile.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Eylon Yogev",
+      "jobTitle": "Associate Professor",
+      "url": "https://eylonyogev.github.io/",
+      "image": "https://eylonyogev.github.io/profile.jpg",
+      "email": "mailto:eylon.yogev@biu.ac.il",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Bar-Ilan University",
+        "department": "Department of Computer Science"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Weizmann Institute of Science"
+      },
+      "knowsAbout": ["Cryptography", "Theoretical Computer Science", "Succinct Arguments",
+                     "SNARGs", "Interactive Oracle Proofs", "Verifiable Computation"],
+      "sameAs": [
+        "https://scholar.google.com/citations?user=5BrpQ74AAAAJ&hl=en",
+        "https://dblp.org/pid/129/1614.html"
+      ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +65,28 @@
             --accent: #4f46e5;         /* Indigo for Links */
             --accent-hover: #4338ca;   /* Darker Indigo for hover */
             --border: #e2e8f0;         /* Light border color */
+            --border-soft: #f1f5f9;    /* Softer border (headings, avatar ring) */
             --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
             --nav-height: 64px;        /* Height of the sticky navbar */
         }
+
+        /* --- DARK MODE (follows the OS setting) --- */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #0f172a;
+                --bg-card: #1a2438;
+                --text-main: #cbd5e1;
+                --text-muted: #94a3b8;
+                --primary: #f1f5f9;
+                --accent: #a5b4fc;
+                --accent-hover: #c7d2fe;
+                --border: #2e3d55;
+                --border-soft: #2a374d;
+                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            }
+        }
+
+        html { color-scheme: light dark; }
 
         /* --- RESET & BASE STYLES --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,6 +99,7 @@
             color: var(--text-main);
             line-height: 1.6;
             font-size: 16px;
+            overflow-wrap: break-word;
         }
 
         a {
@@ -101,7 +165,7 @@
             margin: 0 auto;
             padding: 40px 20px;
             display: grid;
-            grid-template-columns: 300px 1fr; /* Sidebar | Content */
+            grid-template-columns: 300px minmax(0, 1fr); /* Sidebar | Content */
             gap: 60px;
         }
 
@@ -129,7 +193,7 @@
             object-fit: cover;
             border-radius: 50%;
             margin-bottom: 20px;
-            border: 4px solid #f1f5f9;
+            border: 4px solid var(--border-soft);
         }
 
         .profile-name {
@@ -186,7 +250,7 @@
             color: var(--primary);
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #f1f5f9;
+            border-bottom: 2px solid var(--border-soft);
             width: 100%;
             display: flex;
             align-items: center;
@@ -283,16 +347,132 @@
             fill: var(--accent);
         }
 
+
+        /* --- HIGHLIGHTS --- */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            display: block;
+            padding: 14px 16px;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            font-weight: 400;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .highlight:hover {
+            text-decoration: none;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .highlight .kicker {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .highlight .h-title {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--primary);
+        }
+
+        /* --- PUBLICATION FILTER --- */
+        .pub-filter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: -4px 0 26px 0;
+            padding: 9px 14px;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .pub-filter:focus-within {
+            border-color: var(--accent);
+        }
+
+        .pub-filter svg {
+            flex: none;
+            stroke: var(--text-muted);
+        }
+
+        .pub-filter input {
+            flex: 1 1 auto;
+            min-width: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            font: inherit;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .pub-filter input::placeholder { color: var(--text-muted); }
+
+        .pub-count {
+            flex: none;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* --- YEAR SEPARATORS --- */
+        .publication-list .year-sep {
+            margin: 30px 0 16px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+            font-family: 'Vollkorn', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .publication-list .year-sep:first-child { margin-top: 0; }
+
+        .publication-list [hidden] { display: none !important; }
+
+        .pub-empty {
+            padding: 20px 0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
             .container {
-                grid-template-columns: 1fr; /* Stack sidebar and content */
+                grid-template-columns: minmax(0, 1fr); /* Stack sidebar and content */
                 gap: 30px;
             }
 
             .sidebar {
                 position: relative;
                 top: 0;
+            }
+
+            section {
+                padding: 24px 20px;
+            }
+
+            .container {
+                padding: 24px 16px;
+                gap: 24px;
             }
 
             .profile-card {
@@ -312,11 +492,67 @@
                 padding: 10px 20px;
             }
 
-            /* Adjust offsets for mobile where header might be taller/shorter */
-            :root {
-                --nav-height: 50px; 
-            }
         }
+        /* --- PRINT --- */
+        @media print {
+            .navbar, .pub-filter, .contact-links, .highlights { display: none !important; }
+
+            body {
+                background: #fff;
+                color: #000;
+                font-size: 10.5pt;
+                line-height: 1.45;
+            }
+
+            .container {
+                display: block;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .sidebar { position: static; }
+
+            .profile-card {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                text-align: left;
+                padding: 0 0 12pt 0;
+                margin-bottom: 12pt;
+                border: 0;
+                border-bottom: 1pt solid #ccc;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .profile-img { width: 90px; height: 90px; border: 0; margin: 0; }
+
+            section {
+                background: none;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 0;
+                margin-bottom: 14pt;
+            }
+
+            h4 { font-size: 13pt; page-break-after: avoid; break-after: avoid; }
+            .section-icon { display: none; }
+
+            a, a:link, a:visited,
+            .paper .title a, .coauthor, .highlight .h-title {
+                color: #000 !important;
+                text-decoration: none;
+            }
+
+            .paper b, .pub-count { color: #000 !important; }
+
+            li, .paper { page-break-inside: avoid; break-inside: avoid; }
+            .paper { padding-bottom: 6pt; }
+
+            .year-sep { page-break-after: avoid; break-after: avoid; }
+        }
+
     </style>
 </head>
 <body>
@@ -341,7 +577,7 @@
     <aside class="sidebar">
         <div class="profile-card">
             <!-- Ensure profile.jpg is in the same folder -->
-            <img src="profile.jpg" alt="Eylon Yogev" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Eylon+Yogev&background=random&size=200'">
+            <img src="profile.jpg" alt="Eylon Yogev" class="profile-img" width="512" height="512" decoding="async" onerror="this.src='https://ui-avatars.com/api/?name=Eylon+Yogev&background=random&size=200'">
             
             <h1 class="profile-name">Eylon Yogev</h1>
             
@@ -389,6 +625,25 @@
             <p>My research focuses on <strong>theoretical computer science</strong> and <strong>cryptography</strong>. I am particularly interested in <strong>interactive proof systems</strong> (such as SNARGs and IOPs) and their applications to verifiable computation.</p>
             <br>
             <p>I completed my PhD at the Weizmann Institute of Science, where I was fortunate to be advised by Prof. <a class="coauthor" href="http://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>.</p>
+
+            <div class="highlights">
+                <a class="highlight" href="https://snargsbook.org/" target="_blank">
+                    <span class="kicker">Book</span>
+                    <span class="h-title">Building Cryptographic Proofs from Hash Functions</span>
+                </a>
+                <a class="highlight" href="https://www.youtube.com/watch?v=jVHeHmufZhk" target="_blank">
+                    <span class="kicker">New video</span>
+                    <span class="h-title">Can You Trust a Proof Without Reading It?</span>
+                </a>
+                <a class="highlight" href="https://eprint.iacr.org/2024/390" target="_blank">
+                    <span class="kicker">Best Paper &middot; CRYPTO 2024</span>
+                    <span class="h-title">STIR: Reed&ndash;Solomon Proximity Testing with Fewer Queries</span>
+                </a>
+                <a class="highlight" href="https://www.quantamagazine.org/computer-scientists-figure-out-how-to-prove-lies-20250709/" target="_blank">
+                    <span class="kicker">Quanta Magazine</span>
+                    <span class="h-title">Computer Scientists Figure Out How to Prove Lies</span>
+                </a>
+            </div>
         </section>
 
         <!-- Students Section -->
@@ -398,9 +653,9 @@
                 Students
             </h4>
             <ul>
-                <li><a class="coauthor" href="" target="_blank">Michael Tsaban</a> (MSc student)</li>
-                <li><a class="coauthor" href="" target="_blank">Dor Shroitman</a> (MSc student)</li>
-                <li><a class="coauthor" href="" target="_blank">Yonatan Ziskind</a> (MSc student)</li>
+                <li>Michael Tsaban (MSc student)</li>
+                <li>Dor Shroitman (MSc student)</li>
+                <li>Yonatan Ziskind (MSc student)</li>
                 <li><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a> (PhD student, co-advised with Moni Naor)</li>
                 <li><a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a> (PhD student)</li>
                 <li>Amit Sharabi (MSc student)</li>
@@ -431,416 +686,420 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 Publications
             </h4>
-            <!-- Used standard OL but removed dots via CSS for cleaner look -->
-            <ol type="1" reversed="reversed" class="publication-list">
-                <li>
-                <div class="paper">
+            <div class="pub-filter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" id="pub-search" placeholder="Filter by title, coauthor, or venue&hellip;" aria-label="Filter publications" autocomplete="off">
+                <span class="pub-count" id="pub-count" aria-live="polite"></span>
+            </div>
+            <p class="pub-empty" id="pub-empty" hidden>No publications match that filter.</p>
+            <ol class="publication-list">
+                <li class="year-sep" data-year="preprint">Preprints</li>
+                <li class="pub" data-year="preprint">
+                    <div class="paper">
+                    <p class="title"><a href="https://eprint.iacr.org/2025/2328.pdf" target="_blank">SNARGs for NP via Fiat-Shamir in the Plain Model</a></p>
+                    <p><a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a> and Eylon Yogev</p>
+                    </div>
+                </li>
+                <li class="year-sep" data-year="2026">2026</li>
+                <li class="pub" data-year="2026">
+                    <div class="paper">
+                    <p class="title"><a href="https://ieeexplore.ieee.org/document/11664735" target="_blank">How to Build Succinct Arguments From Succinct Commitments</a></p>
+                    <p><a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a>, <a class="coauthor" href="https://cknabs.github.io/" target="_blank">Christian Knabenhans</a>, and Eylon Yogev</p>
+                    <p><b>Proceedings of the IEEE, 2026</b></p>
+                    </div>
+                </li>
+                <li class="pub" data-year="2026">
+                    <div class="paper">
                     <p class="title"><a href="https://eprint.iacr.org/2026/448.pdf" target="_blank">Interactive Proofs for Batch Polynomial Evaluation</a></p>
                     <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io/" target="_blank">Giacomo Fenzi</a>, and Eylon Yogev</p>
                     <p><b>ITC 2026</b></p>
-                </div>
-                </li>
-                <li>
-                  <div class="paper">
-                    <p class="title"><a href="https://eprint.iacr.org/2025/2328.pdf" target="_blank">SNARGs for NP via Fiat-Shamir in the Plain Model</a></p>
-                    <p><a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a> and Eylon Yogev</p>
-                  </div>
-              </li>
-                <li>
-                    <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2025/2160.pdf" target="_blank">Pairing-Based SNARGs with Two Group Elements</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://derjesko.github.io/" target="_blank">Jesko Dujmovic</a> and Eylon Yogev</p>
-                        <p><b>CRYPTO 2026</b>, <b><a href="https://zkproof.org/events/zkproof-8-rome/" target="_blank">ZKProof 8</a></b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2026">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2025/975.pdf" target="_blank">Incompressible Encryption with Everlasting Security</a></p>
-                        <p><a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a> and Eylon Yogev</p>
-                        <p><b>TCC 2025</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2025/2160.pdf" target="_blank">Pairing-Based SNARGs with Two Group Elements</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://derjesko.github.io/" target="_blank">Jesko Dujmovic</a> and Eylon Yogev</p>
+                    <p><b>CRYPTO 2026</b>, <b><a href="https://zkproof.org/events/zkproof-8-rome/" target="_blank">ZKProof 8</a></b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="year-sep" data-year="2025">2025</li>
+                <li class="pub" data-year="2025">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2025/329.pdf" target="_blank">Towards a White-Box Secure Fiat-Shamir Transformation</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a> and Eylon Yogev</p>
-                        <p><b>CRYPTO 2025</b>, <b><a href="https://zkproof.org/events/zkproof-7-sofia/" target="_blank">ZKProof 7</a></b></p>
-                        <p>Featured on <a href="https://www.quantamagazine.org/computer-scientists-figure-out-how-to-prove-lies-20250709/" target="_blank">Quanta Magazine</a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2025/975.pdf" target="_blank">Incompressible Encryption with Everlasting Security</a></p>
+                    <p><a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a> and Eylon Yogev</p>
+                    <p><b>TCC 2025</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2025">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/1659.pdf" target="_blank">Instance Compression, Revisited</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a>, and Eylon Yogev</p>
-                        <p><b>Eurocrypt 2025</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2025/329.pdf" target="_blank">Towards a White-Box Secure Fiat-Shamir Transformation</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a> and Eylon Yogev</p>
+                    <p><b>CRYPTO 2025</b>, <b><a href="https://zkproof.org/events/zkproof-7-sofia/" target="_blank">ZKProof 7</a></b></p>
+                    <p>Featured on <a href="https://www.quantamagazine.org/computer-scientists-figure-out-how-to-prove-lies-20250709/" target="_blank">Quanta Magazine</a></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2025">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/1586.pdf" target="_blank">WHIR: Reed–Solomon Proximity Testing with Super-Fast Verification</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io/" target="_blank">Giacomo Fenzi</a>, and Eylon Yogev</p>
-                        <p><b>Eurocrypt 2025</b>, <a href="https://www.zksummit.com/" target="_blank"> ZKSummit 12</a></p>
-                        <p>See also Giacomo's <a href="https://gfenzi.io/papers/whir/" target="_blank">blogpost</a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/1659.pdf" target="_blank">Instance Compression, Revisited</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a>, and Eylon Yogev</p>
+                    <p><b>Eurocrypt 2025</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2025">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/1704.pdf" target="_blank">From One-Time to Two-Round Reusable Multi-Signatures without Nested Forking</a></p>
-                        <p><a class="coauthor" href="https://www.gilsegev.net/" target="_blank">Gil Segev</a>, <a class="coauthor" href="https://liorrotem.github.io/" target="_blank">Lior Rotem</a>, and Eylon Yogev</p>
-                        <p><b>TCC 2024</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/1586.pdf" target="_blank">WHIR: Reed–Solomon Proximity Testing with Super-Fast Verification</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io/" target="_blank">Giacomo Fenzi</a>, and Eylon Yogev</p>
+                    <p><b>Eurocrypt 2025</b>, <a href="https://www.zksummit.com/" target="_blank"> ZKSummit 12</a></p>
+                    <p>See also Giacomo's <a href="https://gfenzi.io/papers/whir/" target="_blank">blogpost</a></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="year-sep" data-year="2024">2024</li>
+                <li class="pub" data-year="2024">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/1434.pdf" target="_blank">Untangling the Security of Kilian’s Protocol: Upper and Lower Bounds</a></p>
-                        <p><a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://marceldallagnol.github.io/" target="_blank">Marcel Dall’Agnol</a>, <a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a>, <a class="coauthor" href="https://spooner.cc/" target="_blank">Nicholas Spooner</a>, and Eylon Yogev</p>
-                        <p><b>TCC 2024</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/1704.pdf" target="_blank">From One-Time to Two-Round Reusable Multi-Signatures without Nested Forking</a></p>
+                    <p><a class="coauthor" href="https://www.gilsegev.net/" target="_blank">Gil Segev</a>, <a class="coauthor" href="https://liorrotem.github.io/" target="_blank">Lior Rotem</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2024</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2024">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/832.pdf" target="_blank">Hamming Weight Proofs of Proximity with One-Sided Error</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a>, and Eylon Yogev</p>
-                        <p><b>TCC 2024</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/1434.pdf" target="_blank">Untangling the Security of Kilian’s Protocol: Upper and Lower Bounds</a></p>
+                    <p><a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://marceldallagnol.github.io/" target="_blank">Marcel Dall’Agnol</a>, <a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a>, <a class="coauthor" href="https://spooner.cc/" target="_blank">Nicholas Spooner</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2024</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2024">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2024/390" target="_blank">STIR: Reed–Solomon Proximity Testing with Fewer Queries</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io/" target="_blank">Giacomo Fenzi</a>, and Eylon Yogev</p>
-                        <p><b>CRYPTO 2024 (Best Paper Award)</b>, <a href="https://www.zksummit.com/" target="_blank"> ZKSummit 11</a>, <a href="https://zkproof.org/events/zkproof-6-berlin/" target="_blank">ZKProof 6</a> 
-                            <a class="icons" href="https://www.youtube.com/watch?v=OLklJjp8KB4&ab_channel=ZeroKnowledge" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg>
-                            </a>
-                        </p>
-                        <p>See also Giacomo's <a href="https://gfenzi.io/papers/stir/" target="_blank">blogpost</a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/832.pdf" target="_blank">Hamming Weight Proofs of Proximity with One-Sided Error</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://shanybendavid.com/" target="_blank">Shany Ben-David</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2024</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2024">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2023/1646.pdf" target="_blank">Security Bounds for Proof-Carrying Data from Straightline Extractors</a></p>
-                        <p><a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a>, <a class="coauthor" href="https://www.linkedin.com/in/shahar-samocha-659106212/" target="_blank">Shahar Samocha</a>, and Eylon Yogev</p>
-                        <p><b>TCC 2024</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2024/390" target="_blank">STIR: Reed–Solomon Proximity Testing with Fewer Queries</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="http://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io/" target="_blank">Giacomo Fenzi</a>, and Eylon Yogev</p>
+                    <p><b>CRYPTO 2024 (Best Paper Award)</b>, <a href="https://www.zksummit.com/" target="_blank"> ZKSummit 11</a>, <a href="https://zkproof.org/events/zkproof-6-berlin/" target="_blank">ZKProof 6</a> 
+                    <a class="icons" href="https://www.youtube.com/watch?v=OLklJjp8KB4&ab_channel=ZeroKnowledge" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg>
+                    </a>
+                    </p>
+                    <p>See also Giacomo's <a href="https://gfenzi.io/papers/stir/" target="_blank">blogpost</a></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2024">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2023/1420.pdf" target="_blank">Rogue-Instance Security for Batch Knowledge Proofs</a></p>
-                        <p><a class="coauthor" href="https://www.gilsegev.net/" target="_blank">Gil Segev</a>, Amit Sharabi, and Eylon Yogev</p>
-                        <p><b>TCC 2023</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2023/1646.pdf" target="_blank">Security Bounds for Proof-Carrying Data from Straightline Extractors</a></p>
+                    <p><a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, <a class="coauthor" href="https://ziyiguan.github.io/" target="_blank">Ziyi Guan</a>, <a class="coauthor" href="https://www.linkedin.com/in/shahar-samocha-659106212/" target="_blank">Shahar Samocha</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2024</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="year-sep" data-year="2023">2023</li>
+                <li class="pub" data-year="2023">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2023/1062.pdf" target="_blank">IOPs with Inverse Polynomial Soundness Error</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
-                        <p><b>FOCS 2023</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2023/1420.pdf" target="_blank">Rogue-Instance Security for Batch Knowledge Proofs</a></p>
+                    <p><a class="coauthor" href="https://www.gilsegev.net/" target="_blank">Gil Segev</a>, Amit Sharabi, and Eylon Yogev</p>
+                    <p><b>TCC 2023</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2023">
                     <div class="paper">
-                        <p class="title"><a href="https://cs.emis.de/LIPIcs/volltexte/2023/17574/pdf/LIPIcs-ITCS-2023-71_.pdf" target="_blank">Secure Distributed Network Optimization Against Eavesdroppers</a></p>
-                        <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~yaelhi/" target="_blank">Yael Hitron</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
-                        <p><b>ITCS 2023</b> <a class="icons" href="https://www.youtube.com/watch?v=ZuN46goMlLA" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2023/1062.pdf" target="_blank">IOPs with Inverse Polynomial Soundness Error</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
+                    <p><b>FOCS 2023</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2023">
                     <div class="paper">
-                        <p class="title"><a href="https://drops.dagstuhl.de/opus/volltexte/2022/17218/pdf/LIPIcs-DISC-2022-27.pdf" target="_blank">Broadcast CONGEST Algorithms Against Eavesdroppers</a></p>
-                        <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~yaelhi/" target="_blank">Yael Hitron</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
-                        <p><b>DISC 2022</b></p>
+                    <p class="title"><a href="https://cs.emis.de/LIPIcs/volltexte/2023/17574/pdf/LIPIcs-ITCS-2023-71_.pdf" target="_blank">Secure Distributed Network Optimization Against Eavesdroppers</a></p>
+                    <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~yaelhi/" target="_blank">Yael Hitron</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
+                    <p><b>ITCS 2023</b> <a class="icons" href="https://www.youtube.com/watch?v=ZuN46goMlLA" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2023">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2022/790.pdf" target="_blank">A Toolbox for Barriers on Interactive Oracle Proofs</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="#" target="_blank">Amey Bhangale</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
-                        <p><b>TCC 2022</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2022/778.pdf" target="_blank">SPHINCS+C: Compressing SPHINCS+ With (Almost) No Cost</a></p>
+                    <p><a class="coauthor" href="#" target="_blank">Eyal Ronen</a>, <a class="coauthor" href="https://huelsing.net/wordpress/" target="_blank">Andreas Hülsing</a>, <a class="coauthor" href="https://scholar.google.com/citations?user=O4nuTLAAAAAJ&hl=en" target="_blank">Mikhail Kudinov</a>, and Eylon Yogev</p>
+                    <p><b>IEEE Symposium on Security and Privacy, 2023</b></p>
+                    <p><b>4th NIST PQC Standardization Conference</b></p>
                     </div>
                 </li>
-                
-                <li>
+                <li class="year-sep" data-year="2022">2022</li>
+                <li class="pub" data-year="2022">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2022/778.pdf" target="_blank">SPHINCS+C: Compressing SPHINCS+ With (Almost) No Cost</a></p>
-                        <p><a class="coauthor" href="#" target="_blank">Eyal Ronen</a>, <a class="coauthor" href="https://huelsing.net/wordpress/" target="_blank">Andreas Hülsing</a>, <a class="coauthor" href="https://scholar.google.com/citations?user=O4nuTLAAAAAJ&hl=en" target="_blank">Mikhail Kudinov</a>, and Eylon Yogev</p>
-                        <p><b>IEEE Symposium on Security and Privacy, 2023</b></p>
-                        <p><b>4th NIST PQC Standardization Conference</b></p>
+                    <p class="title"><a href="https://drops.dagstuhl.de/opus/volltexte/2022/17218/pdf/LIPIcs-DISC-2022-27.pdf" target="_blank">Broadcast CONGEST Algorithms Against Eavesdroppers</a></p>
+                    <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~yaelhi/" target="_blank">Yael Hitron</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
+                    <p><b>DISC 2022</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2022">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2022/178.pdf" target="_blank">Lower Bound on SNARGs in the Random Oracle Model</a></p>
-                        <p><a class="coauthor" href="http://www.cs.tau.ac.il/~iftachh/" target="_blank">Iftach Haitner</a>, Daniel Nukrai, and Eylon Yogev</p>
-                        <p><b>CRYPTO 2022</b> <a class="icons" href="https://www.youtube.com/watch?v=3Eg4zDbNErg" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2022/790.pdf" target="_blank">A Toolbox for Barriers on Interactive Oracle Proofs</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="#" target="_blank">Amey Bhangale</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2022</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2022">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2022/168.pdf" target="_blank">Hardness of Approximation for Stochastic Problems via Interactive Oracle Proofs</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a> and Eylon Yogev</p>
-                        <p><b>CCC 2022</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2022/178.pdf" target="_blank">Lower Bound on SNARGs in the Random Oracle Model</a></p>
+                    <p><a class="coauthor" href="http://www.cs.tau.ac.il/~iftachh/" target="_blank">Iftach Haitner</a>, Daniel Nukrai, and Eylon Yogev</p>
+                    <p><b>CRYPTO 2022</b> <a class="icons" href="https://www.youtube.com/watch?v=3Eg4zDbNErg" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
                     </div>
                 </li>
-                
-                <li>
+                <li class="pub" data-year="2022">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2022/065.pdf" target="_blank">Practical (Post-Quantum) Key Combiners from One-Wayness and Applications to TLS</a></p>
-                        <p><a class="coauthor" href="https://scholar.google.com/citations?user=IK_rVkIAAAAJ&hl=en" target="_blank">Nimrod Aviram</a>, <a class="coauthor" href="https://scholar.google.com.au/citations?user=gm6du7UAAAAJ&hl=en" target="_blank">Benjamin Dowling</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://inf.ethz.ch/people/person-detail.paterson.html" target="_blank">Kenneth G. Paterson</a>, <a class="coauthor" href="https://eyalro.net/" target="_blank">Eyal Ronen</a>, and Eylon Yogev</p>
-                        <p><b>2022</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2022/168.pdf" target="_blank">Hardness of Approximation for Stochastic Problems via Interactive Oracle Proofs</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a> and Eylon Yogev</p>
+                    <p><b>CCC 2022</b></p>
                     </div>
                 </li>
-
-                <li>
+                <li class="pub" data-year="2022">
                     <div class="paper">
-                        <p class="title"><a href="https://eprint.iacr.org/2021/915.pdf" target="_blank">A PCP Theorem for Interactive Proofs and Applications</a></p>
-                        <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
-                        <p><b>EUROCRYPT 2022</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2022/065.pdf" target="_blank">Practical (Post-Quantum) Key Combiners from One-Wayness and Applications to TLS</a></p>
+                    <p><a class="coauthor" href="https://scholar.google.com/citations?user=IK_rVkIAAAAJ&hl=en" target="_blank">Nimrod Aviram</a>, <a class="coauthor" href="https://scholar.google.com.au/citations?user=gm6du7UAAAAJ&hl=en" target="_blank">Benjamin Dowling</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://inf.ethz.ch/people/person-detail.paterson.html" target="_blank">Kenneth G. Paterson</a>, <a class="coauthor" href="https://eyalro.net/" target="_blank">Eyal Ronen</a>, and Eylon Yogev</p>
+                    <p><b>2022</b></p>
                     </div>
                 </li>
-
-                <!-- Added remaining papers from original list -->
-
-                <li>
-                  <div class="paper">
+                <li class="pub" data-year="2022">
+                    <div class="paper">
+                    <p class="title"><a href="https://eprint.iacr.org/2021/915.pdf" target="_blank">A PCP Theorem for Interactive Proofs and Applications</a></p>
+                    <p><a class="coauthor" href="https://galarnon42.github.io/" target="_blank">Gal Arnon</a>, <a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a>, and Eylon Yogev</p>
+                    <p><b>EUROCRYPT 2022</b></p>
+                    </div>
+                </li>
+                <li class="year-sep" data-year="2021">2021</li>
+                <li class="pub" data-year="2021">
+                    <div class="paper">
                     <p class="title"><a href="https://eprint.iacr.org/2021/281.pdf" target="_blank">Subquadratic SNARGs in the Random Oracle Model</a></p>
                     <p><a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a> and Eylon Yogev</p>
                     <p><b>CRYPTO 2021</b> <a class="icons" href="https://www.youtube.com/watch?v=JBYBNj7msRY" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
-                  </div>
+                    </div>
                 </li>
-                <li>
-                  <div class="paper">
+                <li class="pub" data-year="2021">
+                    <div class="paper">
                     <p class="title"><a href="https://eprint.iacr.org/2021/188.pdf" target="_blank">Tight Security Bounds for Micali’s SNARGs</a></p>
                     <p><a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a> and Eylon Yogev</p>
                     <p><b>TCC 2021</b></p>
-                  </div>
+                    </div>
                 </li>
-                <li>
-                  <div class="paper">
+                <li class="pub" data-year="2021">
+                    <div class="paper">
                     <p class="title"><a href="https://arxiv.org/pdf/2101.09054.pdf" target="_blank">Adversarial Laws of Large Numbers and Optimal Regret in Online Classification</a></p>
                     <p><a class="coauthor" href="https://www.tau.ac.il/~nogaa/" target="_blank">Noga Alon</a>, <a class="coauthor" href="http://www.cs.tau.ac.il/~omrib/" target="_blank">Omri Ben-Eliezer</a>, <a class="coauthor" href="https://yuvaldagan.wordpress.com/" target="_blank">Yuval Dagan</a>, <a class="coauthor" href="http://www.cs.technion.ac.il/~shaymrn/" target="_blank">Shay Moran</a>, <a class="coauthor" href="http://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
                     <p><b>STOC 2021</b>, SIAM Journal on Computing (SICOMP)</p>
-                  </div>
+                    </div>
                 </li>
-                <li>
-                  <div class="paper">
+                <li class="year-sep" data-year="2020">2020</li>
+                <li class="pub" data-year="2020">
+                    <div class="paper">
                     <p class="title"><a href="https://eprint.iacr.org/2020/1427.pdf" target="_blank">Barriers for Succinct Arguments in the Random Oracle Model</a></p>
                     <p><a class="coauthor" href="https://people.eecs.berkeley.edu/~alexch/" target="_blank">Alessandro Chiesa</a> and Eylon Yogev</p>
                     <p><b>TCC 2020</b> <a class="icons" href="https://www.youtube.com/watch?v=A61czHkCBrA" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
-                  </div>
+                    </div>
                 </li>
-                <li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2020/1433.pdf" target="_blank">Interactive Proofs for Social Graphs</a></p>
-                      <p><a class="coauthor" href="https://scholar.google.co.il/citations?user=6hddBj0AAAAJ&hl=en" target="_blank">Liran Katzir</a>, <a class="coauthor" href="http://www.math.tau.ac.il/~clarashk/" target="_blank">Clara Shikhelman</a>, and Eylon Yogev</p>
-                      <p><b>CRYPTO 2020</b> <a class="icons" href="https://www.youtube.com/watch?v=fkCOhuH1um4&list=PLeeS-3Ml-rppZMjRn2bNhb1FU-JOLMjRU" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2020/1433.pdf" target="_blank">Interactive Proofs for Social Graphs</a></p>
+                    <p><a class="coauthor" href="https://scholar.google.co.il/citations?user=6hddBj0AAAAJ&hl=en" target="_blank">Liran Katzir</a>, <a class="coauthor" href="http://www.math.tau.ac.il/~clarashk/" target="_blank">Clara Shikhelman</a>, and Eylon Yogev</p>
+                    <p><b>CRYPTO 2020</b> <a class="icons" href="https://www.youtube.com/watch?v=fkCOhuH1um4&list=PLeeS-3Ml-rppZMjRn2bNhb1FU-JOLMjRU" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/2003.14265.pdf" target="_blank">A Framework for Adversarially Robust Streaming Algorithms</a></p>
-                      <p><a class="coauthor" href="http://www.cs.tau.ac.il/~omrib/" target="_blank">Omri Ben-Eliezer</a>, <a class="coauthor" href="http://rajeshjayaram.com/" target="_blank">Rajesh Jayaram</a>, <a class="coauthor" href="http://www.cs.cmu.edu/~dwoodruf/" target="_blank">David P. Woodruff</a>, and Eylon Yogev</p>
-                      <p><b>PODS 2020</b>, Best Paper Award, 2021 ACM SIGMOD Research Highlight Award, Invited to JACM <a class="icons" href="https://vimeo.com/450920023#t=12m50s" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/2003.14265.pdf" target="_blank">A Framework for Adversarially Robust Streaming Algorithms</a></p>
+                    <p><a class="coauthor" href="http://www.cs.tau.ac.il/~omrib/" target="_blank">Omri Ben-Eliezer</a>, <a class="coauthor" href="http://rajeshjayaram.com/" target="_blank">Rajesh Jayaram</a>, <a class="coauthor" href="http://www.cs.cmu.edu/~dwoodruf/" target="_blank">David P. Woodruff</a>, and Eylon Yogev</p>
+                    <p><b>PODS 2020</b>, Best Paper Award, 2021 ACM SIGMOD Research Highlight Award, Invited to JACM <a class="icons" href="https://vimeo.com/450920023#t=12m50s" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 18"><path d="M0 4.75C0 3.784.784 3 1.75 3h20.5c.966 0 1.75.784 1.75 1.75v14.5A1.75 1.75 0 0 1 22.25 21H1.75A1.75 1.75 0 0 1 0 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h20.5a.25.25 0 0 0 .25-.25V4.75a.25.25 0 0 0-.25-.25Z"/><path d="M9 15.584V8.416a.5.5 0 0 1 .77-.42l5.576 3.583a.5.5 0 0 1 0 .842L9.77 16.005a.5.5 0 0 1-.77-.42Z"/></svg></a></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2020/1411.pdf" target="_blank">Transparent Error Correcting in a Computationally Bounded World</a></p>
-                      <p><a class="coauthor" href="https://dblp.org/pid/168/8485.html" target="_blank">Ofer Grossman</a>, <a class="coauthor" href="http://justinholmgren.com/" target="_blank">Justin Holmgren</a>, and Eylon Yogev</p>
-                      <p><b>TCC 2020</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2020/1411.pdf" target="_blank">Transparent Error Correcting in a Computationally Bounded World</a></p>
+                    <p><a class="coauthor" href="https://dblp.org/pid/168/8485.html" target="_blank">Ofer Grossman</a>, <a class="coauthor" href="http://justinholmgren.com/" target="_blank">Justin Holmgren</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2020</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://eccc.weizmann.ac.il/report/2019/169/download" target="_blank">On Exponential-Time Hypotheses, Derandomization, and Circuit Lower Bounds</a></p>
-                      <p><a class="coauthor" href="http://www.mit.edu/~lijieche/" target="_blank">Lijie Chen</a>, <a class="coauthor" href="http://www.cs.technion.ac.il/~rothblum/" target="_blank">Ron Rothblum</a>, <a class="coauthor" href="https://sites.google.com/site/roeitell/" target="_blank">Roei Tell</a>, and Eylon Yogev</p>
-                      <p><b>FOCS 2020</b>, Journal of the ACM (JACM) <a href="https://drive.google.com/file/d/1tfXBe4NhLV4Ls1bmvShGWdE-ohSGJxQN/view">[slides]</a></p>
+                    <p class="title"><a href="https://eccc.weizmann.ac.il/report/2019/169/download" target="_blank">On Exponential-Time Hypotheses, Derandomization, and Circuit Lower Bounds</a></p>
+                    <p><a class="coauthor" href="http://www.mit.edu/~lijieche/" target="_blank">Lijie Chen</a>, <a class="coauthor" href="http://www.cs.technion.ac.il/~rothblum/" target="_blank">Ron Rothblum</a>, <a class="coauthor" href="https://sites.google.com/site/roeitell/" target="_blank">Roei Tell</a>, and Eylon Yogev</p>
+                    <p><b>FOCS 2020</b>, Journal of the ACM (JACM) <a href="https://drive.google.com/file/d/1tfXBe4NhLV4Ls1bmvShGWdE-ohSGJxQN/view">[slides]</a></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1906.11327.pdf" target="_blank">The Adversarial Robustness of Sampling</a></p>
-                      <p><a class="coauthor" href="http://www.cs.tau.ac.il/~omrib/" target="_blank">Omri Ben-Eliezer</a> and Eylon Yogev</p>
-                      <p><b>PODS 2020</b>, Invited to HALG 2020</p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1906.11327.pdf" target="_blank">The Adversarial Robustness of Sampling</a></p>
+                    <p><a class="coauthor" href="http://www.cs.tau.ac.il/~omrib/" target="_blank">Omri Ben-Eliezer</a> and Eylon Yogev</p>
+                    <p><b>PODS 2020</b>, Invited to HALG 2020</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2020">
                     <div class="paper">
-                      <p class="title"><a href="https://dl.acm.org/doi/10.1145/3293611.3331620" target="_blank">Secure Distributed Computing Made Optimal</a></p>
-                      <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
-                      <p><b>PODC 2019</b></p>
+                    <p class="title"><a href="https://eccc.weizmann.ac.il/report/2018/213/download" target="_blank">The Power of Distributed Verifiers in Interactive Proofs</a></p>
+                    <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
+                    <p><b>SODA 2020</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2019">2019</li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="http://drops.dagstuhl.de/opus/volltexte/2019/10665/pdf/LIPIcs-ICALP-2019-89.pdf" target="_blank">Optimal Short Cycle Decomposition in Almost Linear Time</a></p>
-                      <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
-                      <p><b>ICALP 2019</b></p>
+                    <p class="title"><a href="https://dl.acm.org/doi/10.1145/3293611.3331620" target="_blank">Secure Distributed Computing Made Optimal</a></p>
+                    <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
+                    <p><b>PODC 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1904.07532.pdf" target="_blank">Parallel Balanced Allocations: The Heavily Loaded Case</a></p>
-                      <p><a class="coauthor" href="https://people.mpi-inf.mpg.de/~clenzen/" target="_blank">Christoph Lenzen</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
-                      <p><b>SPAA 2019</b></p>
+                    <p class="title"><a href="http://drops.dagstuhl.de/opus/volltexte/2019/10665/pdf/LIPIcs-ICALP-2019-89.pdf" target="_blank">Optimal Short Cycle Decomposition in Almost Linear Time</a></p>
+                    <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
+                    <p><b>ICALP 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2019/115.pdf" target="_blank">Distributional Collision Resistance Beyond One-Way Functions</a></p>
-                      <p><a class="coauthor" href="https://sites.google.com/site/nirbitansky" target="_blank">Nir Bitansky</a>, <a class="coauthor" href="http://www.cs.tau.ac.il/~iftachh/" target="_blank">Iftach Haitner</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, and Eylon Yogev</p>
-                      <p><b>EUROCRYPT 2019</b></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1904.07532.pdf" target="_blank">Parallel Balanced Allocations: The Heavily Loaded Case</a></p>
+                    <p><a class="coauthor" href="https://people.mpi-inf.mpg.de/~clenzen/" target="_blank">Christoph Lenzen</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
+                    <p><b>SPAA 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://eccc.weizmann.ac.il/report/2018/213/download" target="_blank">The Power of Distributed Verifiers in Interactive Proofs</a></p>
-                      <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a>, and Eylon Yogev</p>
-                      <p><b>SODA 2020</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2019/115.pdf" target="_blank">Distributional Collision Resistance Beyond One-Way Functions</a></p>
+                    <p><a class="coauthor" href="https://sites.google.com/site/nirbitansky" target="_blank">Nir Bitansky</a>, <a class="coauthor" href="http://www.cs.tau.ac.il/~iftachh/" target="_blank">Iftach Haitner</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, and Eylon Yogev</p>
+                    <p><b>EUROCRYPT 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1812.04492.pdf" target="_blank">Low Congestion Cycle Covers and Their Applications</a></p>
-                      <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
-                      <p><b>SODA 2019</b></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1812.04492.pdf" target="_blank">Low Congestion Cycle Covers and Their Applications</a></p>
+                    <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
+                    <p><b>SODA 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1712.01139.pdf" target="_blank">Distributed Algorithms Made Secure: A Graph Theoretic Approach</a></p>
-                      <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
-                      <p><b>SODA 2019</b></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1712.01139.pdf" target="_blank">Distributed Algorithms Made Secure: A Graph Theoretic Approach</a></p>
+                    <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
+                    <p><b>SODA 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2019">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1805.05404.pdf" target="_blank">Congested Clique Algorithms for Graph Spanners</a></p>
-                      <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
-                      <p><b>DISC 2018</b></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1611.00384" target="_blank">CB2CF: A Neural Multiview Content-to-Collaborative Filtering Model for Completely Cold Item Recommendations</a></p>
+                    <p>Oren Barkan, Ori Katz, Noam Koenigstein, and Eylon Yogev</p>
+                    <p><b>RecSys 2019</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2018">2018</li>
+                <li class="pub" data-year="2018">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2018/480.pdf" target="_blank">On Distributional Collision Resistant Hashing</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a> and Eylon Yogev</p>
-                      <p><b>CRYPTO 2018</b></p>
+                    <p class="title"><a href="https://arxiv.org/pdf/1805.05404.pdf" target="_blank">Congested Clique Algorithms for Graph Spanners</a></p>
+                    <p><a class="coauthor" href="http://www.weizmann.ac.il/math/parter/" target="_blank">Merav Parter</a> and Eylon Yogev</p>
+                    <p><b>DISC 2018</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2018">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2018/149.pdf" target="_blank">Another Step Towards Realizing Random Oracles: Non-Malleable Point Obfuscation</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a> and Eylon Yogev</p>
-                      <p><b>EUROCRYPT 2018</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2018/480.pdf" target="_blank">On Distributional Collision Resistant Hashing</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a> and Eylon Yogev</p>
+                    <p><b>CRYPTO 2018</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2018">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2017/871.pdf" target="_blank">Non-Interactive Multiparty Computation without Correlated Randomness</a></p>
-                      <p><a class="coauthor" href="https://shaih.github.io/" target="_blank">Shai Halevi</a>, <a class="coauthor" href="http://www.cs.technion.ac.il/~yuvali/" target="_blank">Yuval Ishai</a>, <a class="coauthor" href="http://www.cs.jhu.edu/~abhishek/" target="_blank">Abhishek Jain</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="http://web.cs.ucla.edu/~sahai/" target="_blank">Amit Sahai</a>, and Eylon Yogev</p>
-                      <p><b>ASIACRYPT 2017</b></p>
+                    <p class="title"><a href="https://eprint.iacr.org/2018/149.pdf" target="_blank">Another Step Towards Realizing Random Oracles: Non-Malleable Point Obfuscation</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a> and Eylon Yogev</p>
+                    <p><b>EUROCRYPT 2018</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2018">
                     <div class="paper">
-                      <p class="title"><a href="http://eprint.iacr.org/2017/486.pdf" target="_blank">Collision Resistant Hashing for Paranoids: Dealing with Multiple Collisions</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
-                      <p><b>EUROCRYPT 2018</b></p>
+                    <p class="title"><a href="http://eprint.iacr.org/2017/486.pdf" target="_blank">Collision Resistant Hashing for Paranoids: Dealing with Multiple Collisions</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
+                    <p><b>EUROCRYPT 2018</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2017">2017</li>
+                <li class="pub" data-year="2017">
                     <div class="paper">
-                      <p class="title"><a href="https://eccc.weizmann.ac.il/report/2017/015/" target="_blank">White-Box vs. Black-Box Complexity of Search Problems: Ramsey and Graph Property Testing</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
-                      <p><b>FOCS 2017</b>, Journal of the ACM (JACM)</p>
+                    <p class="title"><a href="https://eprint.iacr.org/2017/871.pdf" target="_blank">Non-Interactive Multiparty Computation without Correlated Randomness</a></p>
+                    <p><a class="coauthor" href="https://shaih.github.io/" target="_blank">Shai Halevi</a>, <a class="coauthor" href="http://www.cs.technion.ac.il/~yuvali/" target="_blank">Yuval Ishai</a>, <a class="coauthor" href="http://www.cs.jhu.edu/~abhishek/" target="_blank">Abhishek Jain</a>, <a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="http://web.cs.ucla.edu/~sahai/" target="_blank">Amit Sahai</a>, and Eylon Yogev</p>
+                    <p><b>ASIACRYPT 2017</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2017">
                     <div class="paper">
-                      <p class="title"><a href="https://arxiv.org/pdf/1611.00384" target="_blank">CB2CF: A Neural Multiview Content-to-Collaborative Filtering Model for Completely Cold Item Recommendations</a></p>
-                      <p>Oren Barkan, Ori Katz, Noam Koenigstein, and Eylon Yogev</p>
-                      <p><b>RecSys 2019</b></p>
+                    <p class="title"><a href="https://eccc.weizmann.ac.il/report/2017/015/" target="_blank">White-Box vs. Black-Box Complexity of Search Problems: Ramsey and Graph Property Testing</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
+                    <p><b>FOCS 2017</b>, Journal of the ACM (JACM)</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2017">
                     <div class="paper">
-                      <p class="title"><a href="http://eccc.hpi-web.de/report/2016/199/" target="_blank">The Journey from NP to TFNP Hardness</a></p>
-                      <p><a class="coauthor" href="https://hubacekpavel.wordpress.com/" target="_blank">Pavel Hubáček</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
-                      <p><b>ITCS 2017 (honorary invited)</b></p>
+                    <p class="title"><a href="http://eccc.hpi-web.de/report/2016/199/" target="_blank">The Journey from NP to TFNP Hardness</a></p>
+                    <p><a class="coauthor" href="https://hubacekpavel.wordpress.com/" target="_blank">Pavel Hubáček</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
+                    <p><b>ITCS 2017 (honorary invited)</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2017">
                     <div class="paper">
-                      <p class="title"><a href="http://eccc.hpi-web.de/report/2016/063/" target="_blank">Hardness of Continuous Local Search: Query Complexity and Cryptographic Lower Bounds</a></p>
-                      <p><a class="coauthor" href="https://hubacekpavel.wordpress.com/" target="_blank">Pavel Hubáček</a> and Eylon Yogev</p>
-                      <p><b>SODA 2017</b>, SIAM Journal on Computing (SICOMP)</p>
+                    <p class="title"><a href="http://eccc.hpi-web.de/report/2016/063/" target="_blank">Hardness of Continuous Local Search: Query Complexity and Cryptographic Lower Bounds</a></p>
+                    <p><a class="coauthor" href="https://hubacekpavel.wordpress.com/" target="_blank">Pavel Hubáček</a> and Eylon Yogev</p>
+                    <p><b>SODA 2017</b>, SIAM Journal on Computing (SICOMP)</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2016">2016</li>
+                <li class="pub" data-year="2016">
                     <div class="paper">
-                      <p class="title"><a href="http://eprint.iacr.org/2016/281.pdf" target="_blank">Universal Constructions and Robust Combiners for Indistinguishability Obfuscation and Witness Encryption</a></p>
-                      <p><a class="coauthor" href="http://web.cs.ucla.edu/~prabhanjan/" target="_blank">Prabhanjan Ananth</a>, <a class="coauthor" href="https://dblp.org/pers/hd/j/Jain:Aayush" target="_blank">Aayush Jain</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://web.cs.ucla.edu/~sahai/" target="_blank">Amit Sahai</a>, and Eylon Yogev</p>
-                      <p><b>CRYPTO 2016</b></p>
+                    <p class="title"><a href="http://eprint.iacr.org/2016/281.pdf" target="_blank">Universal Constructions and Robust Combiners for Indistinguishability Obfuscation and Witness Encryption</a></p>
+                    <p><a class="coauthor" href="http://web.cs.ucla.edu/~prabhanjan/" target="_blank">Prabhanjan Ananth</a>, <a class="coauthor" href="https://dblp.org/pers/hd/j/Jain:Aayush" target="_blank">Aayush Jain</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://web.cs.ucla.edu/~sahai/" target="_blank">Amit Sahai</a>, and Eylon Yogev</p>
+                    <p><b>CRYPTO 2016</b></p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2016">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2016/194.pdf" target="_blank">How to Share a Secret, Infinitely</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
-                      <p><b>TCC 2016-B</b>, IEEE Transactions on Information Theory, 2017</p>
+                    <p class="title"><a href="https://eprint.iacr.org/2016/194.pdf" target="_blank">How to Share a Secret, Infinitely</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
+                    <p><b>TCC 2016-B</b>, IEEE Transactions on Information Theory, 2017</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2015">2015</li>
+                <li class="pub" data-year="2015">
                     <div class="paper">
-                      <p class="title"><a href="http://arxiv.org/pdf/1412.8356v2" target="_blank">Bloom Filters in Adversarial Environments</a></p>
-                      <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a> and Eylon Yogev</p>
-                      <p><b>CRYPTO 2015</b>, ACM Transactions on Algorithms (TALG)</p>
+                    <p class="title"><a href="http://arxiv.org/pdf/1412.8356v2" target="_blank">Bloom Filters in Adversarial Environments</a></p>
+                    <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a> and Eylon Yogev</p>
+                    <p><b>CRYPTO 2015</b>, ACM Transactions on Algorithms (TALG)</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2015">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2014/868.pdf" target="_blank">Functional Encryption for Randomized Functionalities in the Private-Key Setting from Minimal Assumptions</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, Gil Segev, and Eylon Yogev</p>
-                      <p><b>TCC 2015</b>, Journal of Cryptology 2017</p>
+                    <p class="title"><a href="https://eprint.iacr.org/2014/868.pdf" target="_blank">Functional Encryption for Randomized Functionalities in the Private-Key Setting from Minimal Assumptions</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, Gil Segev, and Eylon Yogev</p>
+                    <p><b>TCC 2015</b>, Journal of Cryptology 2017</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2014">2014</li>
+                <li class="pub" data-year="2014">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2014/347.pdf" target="_blank">One-Way Functions and (Im)Perfect Obfuscation</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="http://talmoran.net/" target="_blank">Tal Moran</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://www.cs.cornell.edu/~rafael/" target="_blank">Rafael Pass</a>, <a class="coauthor" href="http://www.eecs.harvard.edu/~alon/" target="_blank">Alon Rosen</a>, and Eylon Yogev</p>
-                      <p><b>FOCS 2014</b>, SIAM Journal on Computing (SICOMP)</p>
+                    <p class="title"><a href="https://eprint.iacr.org/2014/347.pdf" target="_blank">One-Way Functions and (Im)Perfect Obfuscation</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="http://talmoran.net/" target="_blank">Tal Moran</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, <a class="coauthor" href="http://www.cs.cornell.edu/~rafael/" target="_blank">Rafael Pass</a>, <a class="coauthor" href="http://www.eecs.harvard.edu/~alon/" target="_blank">Alon Rosen</a>, and Eylon Yogev</p>
+                    <p><b>FOCS 2014</b>, SIAM Journal on Computing (SICOMP)</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="pub" data-year="2014">
                     <div class="paper">
-                      <p class="title"><a href="https://eprint.iacr.org/2014/213.pdf" target="_blank">Secret-Sharing for NP</a></p>
-                      <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
-                      <p><b>ASIACRYPT 2014</b>, Invited to journal of Cryptology 2015</p>
+                    <p class="title"><a href="https://eprint.iacr.org/2014/213.pdf" target="_blank">Secret-Sharing for NP</a></p>
+                    <p><a class="coauthor" href="https://www.cs.huji.ac.il/~ilank/" target="_blank">Ilan Komargodski</a>, <a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a>, and Eylon Yogev</p>
+                    <p><b>ASIACRYPT 2014</b>, Invited to journal of Cryptology 2015</p>
                     </div>
-                  </li>
-                  <li>
+                </li>
+                <li class="year-sep" data-year="2013">2013</li>
+                <li class="pub" data-year="2013">
                     <div class="paper">
-                      <p class="title"><a href="http://arxiv.org/pdf/1304.5872v6.pdf" target="_blank">Tight Bounds for Sliding Bloom Filters</a></p>
-                      <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a> and Eylon Yogev</p>
-                      <p><b>ISAAC 2013</b>, Invitation to Algorithmica 2015</p>
+                    <p class="title"><a href="http://arxiv.org/pdf/1304.5872v6.pdf" target="_blank">Tight Bounds for Sliding Bloom Filters</a></p>
+                    <p><a class="coauthor" href="https://www.wisdom.weizmann.ac.il/~/naor/" target="_blank">Moni Naor</a> and Eylon Yogev</p>
+                    <p><b>ISAAC 2013</b>, Invitation to Algorithmica 2015</p>
                     </div>
-                  </li>
-
+                </li>
             </ol>
             
         </section>
@@ -888,7 +1147,7 @@
             <h5 style="color: var(--primary); margin: 25px 0 10px 0; font-family: 'Vollkorn', serif;">Program Committees</h5>
             <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
                 <li><a href="https://zkproof.org/events/zkproof-8-rome/" target="_blank">ZKProof 8</a></li>
-                <li><a href="" target="_blank">TCC 2026</a></li>
+                <li>TCC 2026</li>
                 <li><a href="https://itcrypto.github.io/2026/index.html" target="_blank">ITC 2026</a></li>
                 <li><a href="https://www.cscml.org/" target="_blank">CSCML 2025</a></li>
                 <li><a href="https://zkproof.org/events/zkproof-7-sofia/" target="_blank">ZKProof 7</a></li>
@@ -905,6 +1164,66 @@
 
     </main>
 </div>
+
+<script>
+(function () {
+    var input = document.getElementById('pub-search');
+    var list  = document.querySelector('.publication-list');
+    if (!input || !list) return;
+
+    var pubs  = Array.prototype.slice.call(list.querySelectorAll('li.pub'));
+    var seps  = Array.prototype.slice.call(list.querySelectorAll('li.year-sep'));
+    var count = document.getElementById('pub-count');
+    var empty = document.getElementById('pub-empty');
+
+    pubs.forEach(function (li) {
+        li.setAttribute('data-search', (li.textContent || '').toLowerCase().replace(/\s+/g, ' '));
+    });
+
+    function apply() {
+        var terms = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+        var shown = 0;
+
+        pubs.forEach(function (li) {
+            var hay = li.getAttribute('data-search');
+            var hit = terms.every(function (t) { return hay.indexOf(t) !== -1; });
+            li.hidden = !hit;
+            if (hit) shown++;
+        });
+
+        seps.forEach(function (sep) {
+            var y = sep.getAttribute('data-year');
+            sep.hidden = !pubs.some(function (li) {
+                return li.getAttribute('data-year') === y && !li.hidden;
+            });
+        });
+
+        count.textContent = terms.length
+            ? shown + ' of ' + pubs.length
+            : pubs.length + ' publications';
+        empty.hidden = shown !== 0;
+    }
+
+    input.addEventListener('input', apply);
+    input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { input.value = ''; apply(); }
+    });
+    apply();
+})();
+
+(function () {
+    // The navbar wraps to two rows on narrow screens, so measure it rather than
+    // assuming a height -- this keeps anchor jumps landing below the sticky bar.
+    var nav = document.querySelector('.navbar');
+    if (!nav) return;
+    function sync() {
+        document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+    }
+    sync();
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+})();
+</script>
 
 </body>
 </html>
